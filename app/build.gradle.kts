@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-//    id 'kotlin-kapt' // Add this line
+//    id ("kotlin-kapt")
 }
 
 android {
@@ -28,7 +28,6 @@ android {
         }
     }
     buildFeatures {
-        dataBinding = true
         viewBinding = true
     }
     compileOptions {
@@ -62,8 +61,8 @@ dependencies {
     implementation (libs.androidx.lifecycle.extensions)
     //Rounded Image
     implementation (libs.roundedimageview)
-    //Databinding
-//    kapt("androidx.databinding:databinding-compiler:7.0.0")
+    //DataBinding
+//    kapt(libs.androidx.databinding.compiler)
 
 
 }

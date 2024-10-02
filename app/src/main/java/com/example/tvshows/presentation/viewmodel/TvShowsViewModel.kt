@@ -11,18 +11,18 @@ import com.example.tvshows.domain.repository.TvShowRepository
 class TvShowsViewModel : ViewModel() {
     private val repository: TvShowRepository = TvShowRepository(TvShowRepository.create())
 
-    // MutableLiveData to hold the TV show response
     private val _popularTvShows = MutableLiveData<TvShowResponse>()
     val popularTvShows: LiveData<TvShowResponse> get() = _popularTvShows
 
-    //    fun getMostPopularTvShows(page: Int): LiveData<TvShowResponse> {
-//        return repository.getMostPopularTvShows(page)
-//    }
     fun fetchMostPopularTvShows(page: Int) {
-//    viewModelScope.launch {
-        val response = repository.getMostPopularTvShows(page)
-        Log.d("responsevm","${response}")
-        _popularTvShows.value = response.value // Assuming response.value is of type TvShowResponse
-//    }
+        repository.getMostPopularTvShows(page).observeForever { response ->
+            if (response != null) {
+                Log.d("TvShowsViewModel", "Data fetched successfully: ${response.tv_shows}")
+                _popularTvShows.value = response
+            } else {
+                Log.d("TvShowsViewModel", "Failed to fetch data")
+                _popularTvShows.value = null
+            }
+        }
     }
 }

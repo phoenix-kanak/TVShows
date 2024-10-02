@@ -1,6 +1,7 @@
 [versions]
 agp = "8.5.0"
 converterGson = "2.10.0"
+databindingCompiler = "8.7.0"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -18,6 +19,7 @@ roundedimageview = "2.3.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-databinding-compiler = { module = "androidx.databinding:databinding-compiler", version.ref = "databindingCompiler" }
 androidx-lifecycle-extensions = { module = "androidx.lifecycle:lifecycle-extensions", version.ref = "lifecycleExtensions" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }

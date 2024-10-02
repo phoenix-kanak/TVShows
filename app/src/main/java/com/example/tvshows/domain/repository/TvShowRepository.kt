@@ -13,36 +13,34 @@ import retrofit2.Response
 import android.content.Context
 import androidx.core.content.ContentProviderCompat.requireContext
 
-class TvShowRepository(private val tvApi:TvShowsApi ) {
+class TvShowRepository(private val tvApi: TvShowsApi) {
 
 
-companion object {
-    fun create(): TvShowsApi {
-        return NetworkClient().getRetrofit().create(TvShowsApi::class.java)
+    companion object {
+        fun create(): TvShowsApi {
+            return NetworkClient().getRetrofit().create(TvShowsApi::class.java)
+        }
     }
-}
+
     fun getMostPopularTvShows(page: Int): LiveData<TvShowResponse> {
         val data = MutableLiveData<TvShowResponse>()
 
         tvApi.getMostPopularTvShows(page).enqueue(object : Callback<TvShowResponse> {
-            override fun onResponse(
-                call: Call<TvShowResponse>,
-                response: Response<TvShowResponse>
-            ) {
+            override fun onResponse(call: Call<TvShowResponse>, response: Response<TvShowResponse>) {
                 if (response.isSuccessful) {
                     data.value = response.body()
-                    Log.d("response","${response.body()!!}")
+                    Log.d("response", "${response.body()}")
                 } else {
-                    // Handle error response
-                    data.value = null // Or you could handle it differently, like providing an error state
+                    data.value = null
                 }
             }
-
             override fun onFailure(call: Call<TvShowResponse>, t: Throwable) {
                 data.value = null
+                Log.e("API Error", "Failed to fetch TV shows", t)
             }
         })
-
+        // Return LiveData, which will be updated asynchronously when the network call completes
         return data
     }
+
 }
