@@ -124,7 +124,7 @@
             android:layout_height="24dp"
             android:layout_marginTop="160dp"
             android:indeterminateTint="@color/white"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/show_image" />
