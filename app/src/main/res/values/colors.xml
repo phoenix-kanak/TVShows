@@ -8,6 +8,7 @@
     <color name="colorPrimaryLight">#1E2746</color>
     <color name="colorTextPrimary">#CBD5ED</color>
     <color name="colorTextSecondary">#4A5B82</color>
+    <color name="colorTextDescription">#FFD3D4D7</color>
     <color name="colorTextOther">#5AD303</color>
     <color name="colorTextExtra">#FF5252</color>
 

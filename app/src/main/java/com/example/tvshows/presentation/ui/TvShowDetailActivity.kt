@@ -2,6 +2,7 @@ package com.example.tvshows.presentation.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Html
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -26,7 +27,7 @@ class TvShowDetailActivity : AppCompatActivity() {
             binding.progressBar.visibility = View.INVISIBLE
             if (response != null && response.tvShow.url.isNotEmpty()) {
                 Log.d("desc", "${response.tvShow}")
-                binding.showDescription.text = response.tvShow.description
+                binding.showDescription.text = Html.fromHtml(response.tvShow.description)
             }
         }
         tvShowDetailsViewModel.errorMessage.observe(this) { errorMessage ->
