@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity(), TvShowsListener {
         getPopularTvShows()
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                TODO("Not yet implemented")
+                return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
