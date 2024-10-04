@@ -84,7 +84,6 @@ class MainActivity : AppCompatActivity(), TvShowsListener {
         })
     }
 
-
     private fun getPopularTvShows() {
         binding.progressBar.visibility = View.VISIBLE
         tvShowViewModel.fetchMostPopularTvShows(1)
